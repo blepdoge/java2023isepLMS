@@ -6,19 +6,25 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello world!");
-        //factorielle();
-        //countdown();
-        //carres();
-        //tableMultiplication();
-        //egaliteStr();
-        //min();
-        //max();
-        //parite();
-        //discriminant();
-        //regle();
-        //premier();
-        initialisationTableau();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choisis une fonction a executer !");
+        String a = scanner.nextLine();
+        switch (a) {
+            case "factorielle" -> factorielle();
+            case "countdown" -> countdown();
+            case "carres" -> carres();
+            case "tableMultiplication" -> tableMultiplication();
+            case "egaliteStr" -> egaliteStr();
+            case "min" -> min();
+            case "max" -> max();
+            case "parite" -> parite();
+            case "discriminant" -> discriminant();
+            case "regle" -> regle();
+            case "premier" -> premier();
+            case "initialisationTableau" -> initialisationTableau();
+            default -> System.out.println("Erreur");
+        }
+
 
 
     }
@@ -120,13 +126,18 @@ public class Main {
         System.out.println(n + "! = " + factorielle);
     }
 
-    public static void countdown() throws InterruptedException {
+    public static void countdown() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Saisir un entier positif ou nul");
         int n = scanner.nextInt();
         for (int i = n; i >= 0; i--) {
             System.out.println(i);
-            Thread.sleep(500);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             if (i == 0) {
                 System.out.println("BOOOOOOM!");
             }
@@ -137,7 +148,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Saisir un entier");
         int n = scanner.nextInt();
-        System.out.println(n * n);
+        System.out.println("OG : " +n+" et carré : " +n * n);
     }
 
     public static void tableMultiplication() {
