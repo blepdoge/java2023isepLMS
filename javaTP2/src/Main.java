@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 
 public class Main {
@@ -14,7 +16,9 @@ public class Main {
         //max();
         //parite();
         //discriminant();
-        regle();
+        //regle();
+        //premier();
+        initialisationTableau();
 
 
     }
@@ -154,10 +158,60 @@ public class Main {
         for (int i = 0; i <= 30; i++) {
             if (i % 10 == 0) {
                 System.out.print(i);
-                i += 1;
+                i += (""+i).length()-1;
+            }else{
+                System.out.print(" ");
             }
         }
 
     }
-    
+
+    public static void premier(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Saisir un entier positif");
+        int n = scanner.nextInt();
+        boolean premier = true;
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                premier = false;
+            }
+        }
+        if (premier) {
+            System.out.println("Le nombre " + n + " est premier");
+        } else {
+            System.out.println("Le nombre " + n + " n'est pas premier");
+        }
+    }
+
+    public static void initialisationTableau() {
+        int[] tableau = new int[20];
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < tableau.length; i++) {
+            System.out.println("Saisir un entier");
+            int entier = scanner.nextInt();
+            tableau[i] = entier;
+        }
+        System.out.println(Arrays.toString(tableau));
+        int maximumTab = Arrays.stream(tableau).max().getAsInt();
+        System.out.println("Le maximum du tableau est " + maximumTab);
+        int minimumTab = Arrays.stream(tableau).min().getAsInt();
+        System.out.println("Le minimum du tableau est " + minimumTab);
+        int sommeTab = Arrays.stream(tableau).sum();
+        System.out.println("La somme du tableau est " + sommeTab);
+        int[] nombrePairs = Arrays.stream(tableau).filter(x -> x % 2 == 0).toArray();
+        System.out.println("Les nombres pairs du tableau sont " + Arrays.toString(nombrePairs));
+        int[] indexPairs = IntStream.range(0, tableau.length).filter(i -> tableau[i] % 2 == 0).toArray();
+        System.out.println("Les index des nombres pairs du tableau sont " + Arrays.toString(indexPairs));
+        inverseTableau(tableau);
+    }
+    public static void inverseTableau(int[] tableau){
+        int[] tableauInverse = new int[tableau.length];
+        for (int i = 0; i < tableau.length; i++) {
+            tableauInverse[i] = tableau[tableau.length-1-i];
+        }
+        System.out.println(Arrays.toString(tableauInverse));
+    }
+
+
+
 }
