@@ -77,11 +77,14 @@ public class Chess {
                     if (positions.contains(kingPosition)) {
                         return true;
                     }
+
                 }
             }
         }
+
         return false;
     }
+
     public Cell getCell(int i, int j) {
         return this.board[i][j];
     }
