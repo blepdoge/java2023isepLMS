@@ -17,7 +17,7 @@ public class Bishop extends Pieces {
         int startRow = fromPos.row;
         int startCol = fromPos.col;
 
-        computeDiagonal(currColor, chess, sp, startRow, startCol, Math.min(8,8-startCol),1, 1);
+        computeDiagonal(currColor, chess, sp, startRow, startCol, Math.min(8-startRow,8-startCol),1, 1);
         computeDiagonal(currColor, chess, sp, startRow, startCol, Math.min(startRow,8-startCol), -1, 1);
         computeDiagonal(currColor, chess, sp, startRow, startCol, Math.min(startRow,startCol), -1, -1);
         computeDiagonal(currColor, chess, sp, startRow, startCol, Math.min(8-startRow,startCol), 1, -1);

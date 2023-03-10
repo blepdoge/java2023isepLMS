@@ -1,7 +1,10 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Chess {
     private final Cell[][] board = new Cell[8][8];
+    private Position lastMoveFromPos;
+    private Position lastMoveToPos;
     private Player[] players;
     private Player currentPlayer;
     private Scanner scanner;
@@ -62,6 +65,21 @@ public class Chess {
 
     private boolean isCheckMate() {
 
+        return false;
+    }
+    public boolean isCheck(boolean color, Position kingPosition) {
+        for (int row=0; row<8; row++) {
+            for (int col=0; col<8; col++) {
+                Cell cell = getCell(row, col);
+                Pieces piece = cell.getPiece();
+                if(piece!=null && piece.color!=color) {
+                    List<Position> positions = piece.canMoveTo(color, this, cell.pos);
+                    if (positions.contains(kingPosition)) {
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
     public Cell getCell(int i, int j) {
