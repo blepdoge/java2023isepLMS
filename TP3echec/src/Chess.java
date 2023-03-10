@@ -64,6 +64,9 @@ public class Chess {
 
         return false;
     }
+    public Cell getCell(int i, int j) {
+        return this.board[i][j];
+    }
 
     private void initialiseBoard() {
         for (int i=0; i<8; i++) {

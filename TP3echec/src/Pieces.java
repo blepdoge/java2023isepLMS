@@ -12,6 +12,6 @@ public abstract class Pieces {
         return color?"w":"b";
     }
 
-    public abstract List<Position> canMoveTo(Chess chess, Position fromPos);
+    public abstract List<Position> canMoveTo(boolean currColor, Chess chess, Position fromPos); //on regarde a quelle case elle peut bouger
 
 }
