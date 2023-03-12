@@ -9,10 +9,10 @@ import java.util.Scanner;
 public final class Wand {
     @Getter
     @Setter
-    private String wood;
+    private static String wood;
     @Getter
     @Setter
-    private String core;
+    private static String core;
     private List<String> woodList = List.of("Oak", "Holly", "Birch", "Elm");
 
 
@@ -32,15 +32,16 @@ public final class Wand {
 
         Scanner scanner = new Scanner(System.in);
         int chosenCore = scanner.nextInt();
-        Core core = Core.values()[chosenCore - 1];
-        String myCore = core.getCore();
-        setCore(core.getCore());
+        Core core = Core.values()[chosenCore - 1];  //get the enum variable associated to the number
+        String myCore = core.getCore();             //get the string associated to the enum variable
+        setCore(core.getCore());                    //set the core of the wand
 
         Random r = new Random();
-        int randomitem = r.nextInt(woodList.size());
-        String randomWood = woodList.get(randomitem);
-        setWood(randomWood);
-        System.out.println("Your wand is made of " + randomWood + " and has a " + myCore + " core.");
+        int randomItem = r.nextInt(woodList.size());    //get random index
+        String randomWood = woodList.get(randomItem);   //get random item from the wood list
+        setWood(randomWood);                            //set the wood of the wand
+
+        System.out.println("Your wand is made of " + Wand.wood + " and has a " + Wand.core + " core.");
 
 
     }
