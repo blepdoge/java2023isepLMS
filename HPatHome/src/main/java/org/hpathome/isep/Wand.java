@@ -34,7 +34,7 @@ public final class Wand {
         int chosenCore = scanner.nextInt();
         Core core = Core.values()[chosenCore - 1];  //get the enum variable associated to the number
         String myCore = core.getCore();             //get the string associated to the enum variable
-        setCore(core.getCore());                    //set the core of the wand
+        setCore(myCore);                    //set the core of the wand
 
         Random r = new Random();
         int randomItem = r.nextInt(woodList.size());    //get random index
