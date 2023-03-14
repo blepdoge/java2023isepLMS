@@ -9,9 +9,9 @@ public final class Wizard {
     public static int playerHp = 100;
     public static int playerAcc = 1;
     public static int dmgRes = 10;
-    public static List<String> spells;
+    public static List<Spell> spells;
     public static int playerDmg = 10;
-    public static List<String> potions;
+    public static List<Potion> potions;
     public static String playerPet;
     public static String playerHouse;
     public Wizard() {
